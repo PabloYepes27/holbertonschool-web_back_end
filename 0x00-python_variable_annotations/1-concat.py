@@ -2,10 +2,9 @@
 """ File that contains a concatenation string function """
 
 
-def concat(str1:str, str2:str) -> str:
+def concat(str1: str, str2: str) -> str:
     """
-    Description:
-        Function that returns a concatenated string
+    Function that returns a concatenated string
 
     Args:
         str1 (str): first number

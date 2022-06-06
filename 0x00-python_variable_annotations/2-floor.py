@@ -2,10 +2,9 @@
 """ File that contains a floor function """
 
 
-def floor(n:float) -> int:
+def floor(n: float) -> int:
     """
-    Description:
-        Function that returns the floor of a float number
+    Function that returns the floor of a float number
 
     Args:
         n (float): float number

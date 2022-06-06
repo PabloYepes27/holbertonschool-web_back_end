@@ -5,12 +5,13 @@ from typing import Callable
 
 
 def make_multiplier(multiplier: float) -> Callable[[float], float]:
-    """ Function that returns a function that multiplies two floats
+    """
+        Function that returns a function that multiplies two floats
 
         Args:
             multiplier (float): a float number
 
-        Returns:
+        Return:
             Callable[[float], float]: function that multiplies a float by multiplier.
     """
     return lambda n: n * multiplier

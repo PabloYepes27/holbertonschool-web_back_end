@@ -1,18 +1,16 @@
 #!/usr/bin/env python3
-""" File that contains a sum_mixed_list function """
+""" Module name 8-make_multiplier """
 
-from typing import Tuple, Union
+from typing import Callable
 
 
-def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
-    """
-        Function that return a string and a squared number
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
+    """ function that takes a float multiplier as argument and returns
+        a function that multiplies a float by multiplier.
 
         Args:
-            k (str): a random string
-            v (Union[int, float]): number to be squared
+            multiplier -> float
 
-        Returns:
-            Tuple[str, float]: _description_
+        Return: a function that multiplies a float by multiplier
     """
-    return (k, v**2)
+    return lambda x: x * multiplier

@@ -4,12 +4,12 @@
 
 def floor(n: float) -> int:
     """
-    Function that returns the floor of a float number
+        Function that returns the floor of a float number
 
-    Args:
-        n (float): float number
+        Args:
+            n (float): float number
 
-    Returns:
-        floor of a number
+        Returns:
+            floor of a number
     """
     return int(n)

@@ -4,12 +4,12 @@
 
 def to_str(n: float) -> str:
     """
-    Function that returns the string representation of a float number
+        Function that returns the string representation of a float number
 
-    Args:
-        n (float): float number
+        Args:
+            n (float): float number
 
-    Returns:
-        string representation of a float number
+        Returns:
+            string representation of a float number
     """
     return str(n)

@@ -3,14 +3,13 @@
 
 
 def add(a: float, b: float) -> float:
-    """
-    Function that returns the sum of two float numbers
+    """Function that takes two floats as arguments and returns
+        their sum as a float.
 
-    Args:
-        a (float): first number
-        b (float): second number
+        Args:
+            a -> float
+            b -> float
 
-    Returns:
-        float sum of two numbers
+        Return: a float
     """
     return a + b

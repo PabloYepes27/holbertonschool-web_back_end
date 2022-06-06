@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+""" File that contains a make_multiplier function """
+
+from typing import Callable
+
+
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
+    """
+        function that returns a function that multiplies two floats
+
+        Args:
+            multiplier (float): a float number
+
+        Returns:
+            Callable[[float], float]: function that multiplies a float by multiplier.
+    """
+    return lambda n: n * multiplier

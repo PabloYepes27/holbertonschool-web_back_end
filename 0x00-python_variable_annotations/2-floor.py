@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """ File that contains a floor function """
 
+
 def floor(n:float) -> int:
     """
     Description:

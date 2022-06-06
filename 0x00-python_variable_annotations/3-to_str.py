@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """ File that contains a to string function """
 
+
 def to_str(n:float) -> str:
     """
     Description:

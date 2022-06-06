@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """ File that contains a concatenation string function """
 
+
 def concat(str1:str, str2:str) -> str:
     """
     Description:

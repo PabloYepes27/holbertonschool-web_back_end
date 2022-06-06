@@ -4,13 +4,13 @@
 
 def concat(str1: str, str2: str) -> str:
     """
-    Function that returns a concatenated string
+        Function that returns a concatenated string
 
-    Args:
-        str1 (str): first number
-        str2 (str): second number
+        Args:
+            str1 (str): first number
+            str2 (str): second number
 
-    Returns:
-        a concatenated string
+        Returns:
+            a concatenated string
     """
     return str1 + str2

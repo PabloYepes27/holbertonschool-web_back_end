@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
-""" File that contains a sum_list function """
+""" Module name 5-sum_list """
 
 from typing import List
 
 
 def sum_list(input_list: List[float]) -> float:
-    """
-        Function that returns the sum of the list elements
+    """ Function which takes a list of floats as argument
+        and returns their sum as a float.
 
         Args:
-            input_list (List[float]): list of float numbers
+            input_list -> List[float]
 
-        Returns:
-            float: sum of the list elements 
+        Return: sum of list the floats
     """
     return sum(input_list)

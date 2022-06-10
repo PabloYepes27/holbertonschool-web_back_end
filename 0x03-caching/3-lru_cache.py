@@ -1,29 +1,36 @@
 #!/usr/bin/env python3
-"""
-Base Caching System
-"""
-
-
+""" Module named 3-lru_cache """
 BaseCaching = __import__('base_caching').BaseCaching
 
 
 class LRUCache(BaseCaching):
-    """FIFOCache system
+    """ A class LRUCache that inherits from
+        BaseCaching and is a caching system
     """
+    def __init__(self):
+        """ Initialize a new FIFOCache. """
+        super().__init__()
+        self.all_keys = []
+
     def put(self, key, item):
-        """ Add an item in the cache
-        """
-        if key and item:
-            if len(self.cache_data) >= self.MAX_ITEMS:
-                if key in self.cache_data:
-                    self.cache_data.pop(key)
-                else:
-                    discard = list(self.cache_data)[0]
-                    self.cache_data.pop(discard)
-                    print("DISCARD: {}".format(discard))
+        """ Function to assing to the dictionary """
+        if key is not None and item is not None:
             self.cache_data[key] = item
+            if key not in self.all_keys:
+                self.all_keys.append(key)
+            else:
+                self.all_keys.append(self.all_keys.pop(
+                    self.all_keys.index(key)))
+            if len(self.all_keys) > BaseCaching.MAX_ITEMS:
+                # LRU algorithm
+                least_recently_used = self.all_keys.pop(0)
+                del self.cache_data[least_recently_used]
+                print("DISCARD: {}".format(least_recently_used))
 
     def get(self, key):
-        """ Get an item by key
-        """
-        return self.cache_data.get(key)
+        """ Function to return the value: item by key """
+        if key is not None and key in self.cache_data:
+            self.all_keys.append(self.all_keys.pop(
+                self.all_keys.index(key)))
+            return self.cache_data[key]
+        return None

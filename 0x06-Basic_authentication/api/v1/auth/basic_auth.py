@@ -4,7 +4,7 @@
 
 from api.v1.auth.auth import Auth
 from flask import request
-from typing import List, TypeVar
+from typing import List, TypeVar, Tuple
 from base64 import b64decode
 
 
@@ -33,3 +33,17 @@ class BasicAuth(Auth):
             return b64decode(base64_authorization_header).decode('utf-8')
         except Exception:
             return None
+
+    def extract_user_credentials(self,
+                                 decoded_base64_authorization_header: str
+                                 ) -> Tuple[str, str]:
+        """ Method in the class BasicAuth that returns the user email and
+            password from the Base64 decoded value.
+        """
+        if (decoded_base64_authorization_header is None or
+                type(decoded_base64_authorization_header) is not str or
+                ':' not in decoded_base64_authorization_header):
+            return None, None
+        values_auth = decoded_base64_authorization_header.split(':', 1)
+        return values_auth[0], values_auth[1]
+    

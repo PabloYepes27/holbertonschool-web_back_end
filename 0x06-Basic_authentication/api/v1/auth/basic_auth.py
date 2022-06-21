@@ -3,8 +3,6 @@
 
 
 from api.v1.auth.auth import Auth
-from flask import request
-from typing import List, TypeVar
 from models.user import User
 from typing import TypeVar
 from base64 import b64decode
@@ -22,6 +20,7 @@ class BasicAuth(Auth):
                 not authorization_header.startswith("Basic ")):
             return None
         return authorization_header[6:]
+
     def decode_base64_authorization_header(
             self, base64_authorization_header: str) -> str:
         """  Method in the class BasicAuth that returns the decoded value
@@ -34,6 +33,7 @@ class BasicAuth(Auth):
             return b64decode(base64_authorization_header).decode('utf-8')
         except Exception:
             return None
+
     def extract_user_credentials(self,
                                  decoded_base64_authorization_header: str
                                  ) -> (str, str):
@@ -66,3 +66,20 @@ class BasicAuth(Auth):
             if user.is_valid_password(user_pwd):
                 return user
         return None
+
+    def current_user(self, request=None) -> TypeVar('User'):
+        """ Method in the class BasicAuth that overloads Auth and
+            retrieves the User instance for a request.
+        """
+        try:
+            header_req = self.authorization_header(request)
+            extractbase64 = self.extract_base64_authorization_header(
+                header_req)
+            decodebase64 = self.decode_base64_authorization_header(
+                extractbase64)
+            values_auth = self.extract_user_credentials(decodebase64)
+            user = self.user_object_from_credentials(values_auth[0],
+                                                     values_auth[1])
+            return user
+        except Exception:
+            return None
